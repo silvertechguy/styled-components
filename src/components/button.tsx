@@ -1,5 +1,15 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  110% {
+    opacity: 1;
+  }
+`;
 
 const MyStyledButton = styled("button")<{
   primary?: boolean;
@@ -12,6 +22,7 @@ const MyStyledButton = styled("button")<{
   padding: 0.5rem 1rem;
   border: 1px solid palevioletred;
   border-radius: 3px;
+  animation: 2s ${fadeIn} ease-in;
 
   ${({ primary, bgColor }) =>
     primary &&
@@ -24,10 +35,6 @@ const MyStyledButton = styled("button")<{
   &:hover {
     color: white;
     background-color: palevioletred;
-  }
-
-  .someClass {
-    color: blue;
   }
 `;
 
@@ -42,7 +49,6 @@ const Button: React.FC<ButtonProps> = ({ children, primary, bgColor }) => {
     <>
       <MyStyledButton primary={primary} bgColor={bgColor}>
         {children}
-        <p className="someClass">Test</p>
       </MyStyledButton>
     </>
   );
