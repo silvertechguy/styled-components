@@ -38,6 +38,16 @@ const MyStyledButton = styled("button")<{
   }
 `;
 
+const OuterWrapper = styled("div")`
+  width: 100%;
+  background-color: blueviolet;
+  margin-top: 2rem;
+
+  &:hover ${MyStyledButton} {
+    color: red;
+  }
+`;
+
 interface ButtonProps {
   children: string;
   primary?: boolean;
@@ -46,11 +56,11 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ children, primary, bgColor }) => {
   return (
-    <>
+    <OuterWrapper>
       <MyStyledButton primary={primary} bgColor={bgColor}>
         {children}
       </MyStyledButton>
-    </>
+    </OuterWrapper>
   );
 };
 
