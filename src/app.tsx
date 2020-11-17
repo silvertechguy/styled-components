@@ -21,6 +21,11 @@ const PaginationWrapper = styled("div")<{ page?: string }>`
   }};
 `;
 
+const Link = styled("a").attrs(() => ({ target: "_blank" }))`
+  color: violet;
+  font-size: 1.5rem;
+`;
+
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
@@ -34,6 +39,8 @@ const App: React.FC<AppProps> = () => {
         <Button>Page 2</Button>
         <Button>Page 4</Button>
       </PaginationWrapper>
+      <Link href="https://www.google.com">Google</Link>
+      <Link href="https://www.facebook.com">Facebook</Link>
     </MainWrapper>
   );
 };
