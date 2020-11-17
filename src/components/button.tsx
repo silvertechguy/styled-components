@@ -15,9 +15,9 @@ const MyStyledButton = styled("button")<{
   primary?: boolean;
   bgColor?: string;
 }>`
-  background-color: white;
-  color: palevioletred;
-  font-size: 1.2rem;
+  background-color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.main};
+  font-size: ${({ theme }) => theme.fontSizes.p};
   margin: 1rem;
   padding: 0.5rem 1rem;
   border: 1px solid palevioletred;
@@ -35,6 +35,11 @@ const MyStyledButton = styled("button")<{
   &:hover {
     color: white;
     background-color: palevioletred;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.bellow768} {
+    font-size: 0.4rem;
+    color: blue;
   }
 `;
 
