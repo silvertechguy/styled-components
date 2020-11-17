@@ -16,7 +16,9 @@ interface AppProps {}
 const App: React.FC<AppProps> = () => {
   return (
     <MainWrapper>
-      <Button primary>My primary button</Button>
+      <Button primary bgColor={"palevioletred"}>
+        My primary button
+      </Button>
       <Button>My button</Button>
     </MainWrapper>
   );

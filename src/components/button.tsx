@@ -1,23 +1,39 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const MyStyledButton = styled("button")<{ primary?: boolean }>`
-  border: none;
-  outline: none;
-  color: ${({ primary }) => (primary ? "red" : "#fff")};
-  background-color: #333;
-  font-size: 1.8rem;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
+const MyStyledButton = styled("button")<{
+  primary?: boolean;
+  bgColor?: string;
+}>`
+  background-color: white;
+  color: palevioletred;
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
+
+  ${({ primary, bgColor }) =>
+    primary &&
+    css`
+      background-color: ${bgColor};
+      color: white;
+      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    `}
 `;
 
 interface ButtonProps {
   children: string;
   primary?: boolean;
+  bgColor?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, primary }) => {
-  return <MyStyledButton primary={primary}>{children}</MyStyledButton>;
+const Button: React.FC<ButtonProps> = ({ children, primary, bgColor }) => {
+  return (
+    <MyStyledButton primary={primary} bgColor={bgColor}>
+      {children}
+    </MyStyledButton>
+  );
 };
 
 export default Button;
