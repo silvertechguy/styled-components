@@ -11,6 +11,16 @@ const MainWrapper = styled.section`
   flex-direction: column;
 `;
 
+const PaginationWrapper = styled("div")<{ page?: string }>`
+  width: 100%;
+  display: flex;
+  justify-content: ${({ page }) => {
+    if (page === "first") return "flex-end";
+    else if (page === "middle") return "center";
+    else return "flex-start";
+  }};
+`;
+
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
@@ -20,6 +30,10 @@ const App: React.FC<AppProps> = () => {
         My primary button
       </Button>
       <Button>My button</Button>
+      <PaginationWrapper page={"middle"}>
+        <Button>Page 2</Button>
+        <Button>Page 4</Button>
+      </PaginationWrapper>
     </MainWrapper>
   );
 };

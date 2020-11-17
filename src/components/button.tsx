@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Button as BootstrapButton } from "react-bootstrap";
 
 const MyStyledButton = styled("button")<{
   primary?: boolean;
@@ -21,6 +20,15 @@ const MyStyledButton = styled("button")<{
       color: white;
       box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
     `}
+
+  &:hover {
+    color: white;
+    background-color: palevioletred;
+  }
+
+  .someClass {
+    color: blue;
+  }
 `;
 
 interface ButtonProps {
@@ -29,19 +37,13 @@ interface ButtonProps {
   bgColor?: string;
 }
 
-const StyledButton = styled(BootstrapButton)`
-  margin: 1rem;
-`;
-
 const Button: React.FC<ButtonProps> = ({ children, primary, bgColor }) => {
   return (
     <>
       <MyStyledButton primary={primary} bgColor={bgColor}>
         {children}
+        <p className="someClass">Test</p>
       </MyStyledButton>
-      <StyledButton type="submit" variant="outline-success">
-        Search
-      </StyledButton>
     </>
   );
 };
